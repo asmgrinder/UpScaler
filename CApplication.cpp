@@ -1,6 +1,8 @@
 #include "CApplication.h"
 #include "resource.h"
 
+#define MB_TITLE L"UpScaler"
+
 using namespace std;
 using namespace Gdiplus;
 
