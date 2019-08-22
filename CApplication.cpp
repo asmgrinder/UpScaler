@@ -1,12 +1,7 @@
 #include "CApplication.h"
 #include "resource.h"
 
-// #define IDM_NEW		101
-// #define IDM_OPEN	102
-
 #define MB_TITLE L"oRGB"
-
-// #define ALPHA (1.75f)	// color strength multiplier
 
 using namespace std;
 using namespace Gdiplus;
@@ -32,110 +27,6 @@ void CApplication::onInitDialog()
     icex.dwICC   = ICC_COOL_CLASSES | ICC_BAR_CLASSES;
     InitCommonControlsEx(&icex);
 
-//     const int ImageListID    = 0;
-//     const int numButtons     = 2;
-//     const int bitmapSize     = 16;
-//     
-//     const DWORD buttonStyles = BTNS_AUTOSIZE;
-// 
-//     // Create the toolbar.
-//     HWND hwndToolbar = CreateWindowEx(0, TOOLBARCLASSNAME, NULL, 
-//                                       WS_CHILD | TBSTYLE_WRAPABLE, 0, 0, 0, 0, 
-//                                       mWindow, NULL, mInstance, NULL);
-//     if (hwndToolbar != NULL)
-//     {
-// 		// Create the image list.
-// 	    mhImageList = ImageList_Create(bitmapSize, bitmapSize,   // Dimensions of individual bitmaps.
-// 	                                    ILC_COLOR16 | ILC_MASK,   // Ensures transparent background.
-// 	                                    numButtons, 0);
-// 
-// 	    // Set the image list.
-// 	    SendMessage(hwndToolbar, TB_SETIMAGELIST, 
-// 	                WPARAM(ImageListID), 
-// 	                LPARAM(mhImageList));
-// 
-// 	    // Load the button images.
-// 	    SendMessage(hwndToolbar, TB_LOADIMAGES, 
-// 	                WPARAM(IDB_STD_SMALL_COLOR), 
-// 	                LPARAM(HINST_COMMCTRL));
-// 
-// 	    // Initialize button info.
-// 	    // IDM_NEW, IDM_OPEN, and IDM_SAVE are application-defined command constants.
-// 	    
-// 	    TBBUTTON tbButtons[numButtons] = 
-// 	    {
-// 	        { MAKELONG(STD_FILENEW,  ImageListID), IDM_NEW,  TBSTATE_ENABLED, buttonStyles, {0}, 0, reinterpret_cast<INT_PTR>(L"New") },
-// 	        { MAKELONG(STD_FILEOPEN, ImageListID), IDM_OPEN, TBSTATE_ENABLED, buttonStyles, {0}, 0, reinterpret_cast<INT_PTR>(L"Open")},
-// 	        //{ MAKELONG(STD_FILESAVE, ImageListID), IDM_SAVE, 0,               buttonStyles, {0}, 0, (INT_PTR)L"Save"}
-// 	    };
-// 
-// 	    // Add buttons.
-// 	    SendMessage(hwndToolbar, TB_BUTTONSTRUCTSIZE, WPARAM(sizeof(TBBUTTON)), 0);
-// 	    SendMessage(hwndToolbar, TB_ADDBUTTONS, WPARAM(numButtons), reinterpret_cast<LPARAM>(&tbButtons));
-// 
-// 	    // Resize the toolbar, and then show it.
-// 	    SendMessage(hwndToolbar, TB_AUTOSIZE, 0, 0); 
-// 	    //ShowWindow(hwndToolbar,  TRUE);
-// 
-// 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//         // Create the rebar.
-// 	    auto hwndRebar = mRebar = CreateWindowEx(WS_EX_TOOLWINDOW,
-//                                                  REBARCLASSNAME,
-//                                                  NULL,
-//                                                  WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS |
-//                                                  WS_CLIPCHILDREN | RBS_VARHEIGHT |
-//                                                  CCS_NODIVIDER | RBS_BANDBORDERS,
-//                                                  0, 0, 0, 0,
-//                                                  mWindow,
-//                                                  NULL,
-//                                                  mInstance, // global instance handle
-//                                                  NULL);
-// 
-// 	    if (nullptr != hwndRebar)
-// 	    {
-// 		    // Initialize band info used by both bands.
-// 		    REBARBANDINFO rbBand;
-//             rbBand.cbSize = sizeof(REBARBANDINFO);
-// 		    rbBand.fMask  = 
-// 		          RBBIM_STYLE       // fStyle is valid.
-// 		        | RBBIM_TEXT        // lpText is valid.
-// 		        | RBBIM_CHILD       // hwndChild is valid.
-// 		        | RBBIM_CHILDSIZE   // child size members are valid.
-// 		        | RBBIM_SIZE;       // cx is valid
-// 		    rbBand.fStyle = RBBS_CHILDEDGE | RBBS_GRIPPERALWAYS;
-// 		
-// 		    // Get the height of the toolbar.
-// 		    DWORD dwBtnSize = static_cast<DWORD>(SendMessage(hwndToolbar, TB_GETBUTTONSIZE, 0, 0));
-// 		
-// 		    // Set values unique to the band with the toolbar.
-// 		    rbBand.lpText = TEXT("");
-// 		    rbBand.hwndChild = hwndToolbar;
-// 		    rbBand.cyChild = LOWORD(dwBtnSize);
-// 		    rbBand.cxMinChild = numButtons * HIWORD(dwBtnSize);
-// 		    rbBand.cyMinChild = LOWORD(dwBtnSize);
-// 		    // The default width is the width of the buttons.
-// 		    rbBand.cx = 0;
-// 		
-// 		    // Add the band that has the toolbar.
-// 		    SendMessage(hwndRebar, RB_INSERTBAND, WPARAM(-1), reinterpret_cast<LPARAM>(&rbBand));
-// 
-// 		    // Set values unique to the band with the combo box.
-// //		    RECT rc;
-// //		    GetWindowRect(hwndCombo, &rc);
-// //		    rbBand.lpText = TEXT("Font");
-// //		    rbBand.hwndChild = hwndCombo;
-// //		    rbBand.cxMinChild = 0;
-// //		    rbBand.cyMinChild = rc.bottom - rc.top;
-// //		    // The default width should be set to some value wider than the text. The combo 
-// //		    // box itself will expand to fill the band.
-// //		    rbBand.cx = 100;
-// //		
-// //		    // Add the band that has the combo box.
-// //		    SendMessage(hwndRebar, RB_INSERTBAND, (WPARAM)-1, (LPARAM)&rbBand);
-// 	 	}
-// 	}
-
-	openImage(L"uqm_orig.png");
 }
 
 void CApplication::onOpen()
@@ -163,8 +54,6 @@ void CApplication::onOpen()
 
 void CApplication::onExit()
 {
-//	EndDialog(mWindow, IDOK);
-//	PostQuitMessage(0);
 	DestroyWindow(mWindow);
 }
 
@@ -309,7 +198,6 @@ bool CApplication::openImage(const WCHAR *FilenameStr)
                                                             | (unsigned(sum[1]) << 8)
                                                             | (unsigned(sum[2]) << 16)
                                                             | (unsigned(sum[3]) << 24);
-//                     niData[j * mBigBitmap->GetWidth() + i] = bmpData[(j >> 1) * bitmap.GetWidth() + (i >> 1)];
                 }
             }
             Graphics graphics(mBigBitmap.get());
@@ -319,30 +207,6 @@ bool CApplication::openImage(const WCHAR *FilenameStr)
                        PixelFormat32bppARGB,
                        reinterpret_cast<BYTE*>(&niData[0]));
             graphics.DrawImage(&bmp, 0, 0);
-// 			CoRGB oRgbSrc(bitmap.GetWidth(), bitmap.GetHeight(), &bmpData[0]);
-// 
-// 			const UINT rows = 3, columns = 3;
-// 			mBigBitmap = make_shared<Bitmap>(bitmap.GetWidth() * columns, bitmap.GetHeight() * rows);
-// 			Graphics graphics(mBigBitmap.get());
-// 		    for (UINT row = 0; row < rows; row++)
-// 		    {
-// 		        for (UINT column = 0; column < columns; column++)
-// 		        {
-// 					CoRGB oRgbColored = oRgbSrc;
-// 		            oRgbColored.ScaleColor(CoRGB::CF_C1_BLUEYELLOW, pow(ALPHA, column) / ALPHA);
-// 		            oRgbColored.ScaleColor(CoRGB::CF_C2_GREENRED, ALPHA / pow(ALPHA, row));
-// 		            vector<ULONG> imageData;
-// 		            if (false != oRgbColored.GetImageData(imageData))
-// 		            {
-// 		            	Bitmap bmp(oRgbColored.GetWidth(),
-// 									oRgbColored.GetHeight(),
-// 									oRgbColored.GetWidth() * sizeof(ULONG),
-// 									PixelFormat32bppARGB,
-// 									reinterpret_cast<BYTE*>(&imageData[0]));
-// 						graphics.DrawImage(&bmp, int(column * bmp.GetWidth()), int(row * bmp.GetHeight()));
-// 					}
-// 		        }
-// 		    }
 		}
 		
 		return true;
