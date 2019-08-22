@@ -1,8 +1,6 @@
 #include "CApplication.h"
 #include "resource.h"
 
-#define MB_TITLE L"oRGB"
-
 using namespace std;
 using namespace Gdiplus;
 
