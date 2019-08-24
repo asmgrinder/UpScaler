@@ -16,7 +16,7 @@ set (CMAKE_COMPILER_FLAGS "-march=core2 -mtune=core2 -DUNICODE -D_UNICODE -Wall 
 
 set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CMAKE_COMPILER_FLAGS}")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_COMPILER_FLAGS}")
-set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -static-libgcc -static-libstdc++ -Wl,--stack=8388608")
+set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -static-libgcc -static-libstdc++ -Wl,-subsystem,windows")
 
 #-Wall -Wextra -Wfloat-equal -Wshadow -Wunused-macros -Wold-style-cast -Woverloaded-virtual
 set (CMAKE_C_FLAGS_DEBUG "-g -D_DEBUG")
