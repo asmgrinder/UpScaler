@@ -13,27 +13,29 @@
 
 class CApplication
 {
-	public:
-		CApplication();
-		~CApplication();
-		void Run(HINSTANCE Instance);
-	protected:
-		void onInitDialog();
-		void onOpen();
-		void onExit();
-		void onPaint(const RECT &rect);
-		void onEraseBkgnd(HDC hdc, const RECT &rect);
-		void doPaint(HDC hdc, const RECT &rect);
-		void onSize();
-		void reportLastError();
-		bool openImage(const WCHAR *FilenameStr);
-		static bool getBitmapData(Gdiplus::Bitmap &Bmp, std::vector<ULONG> &Data);
-		static INT_PTR CALLBACK dialogProc(HWND Window, UINT Message, WPARAM WordParam, LPARAM LongParam);
+    public:
+        CApplication();
+        ~CApplication();
+        void Run(HINSTANCE Instance);
+    protected:
+        void onInitDialog();
+        void onOpen();
+        void onSaveAs();
+        void onExit();
+        void onPaint(const RECT &rect);
+        void onEraseBkgnd(HDC hdc, const RECT &rect);
+        void doPaint(HDC hdc, const RECT &rect);
+        void onSize();
+        void reportLastError();
+        bool openImage(const WCHAR *FilenameStr);
+        static bool getBitmapData(Gdiplus::Bitmap &Bmp, std::vector<ULONG> &Data);
+        static INT_PTR CALLBACK dialogProc(HWND Window, UINT Message, WPARAM WordParam, LPARAM LongParam);
 
-		HWND mWindow, mRebar;
-		HINSTANCE mInstance;
-		HIMAGELIST mhImageList;
-		std::shared_ptr<Gdiplus::Bitmap> mBigBitmap;
+        HWND mWindow, mRebar;
+        HINSTANCE mInstance;
+        HIMAGELIST mhImageList;
+        WCHAR mFileName[MAX_PATH] = L"";
+        std::shared_ptr<Gdiplus::Bitmap> mBigBitmap;
 };
 
 #endif
