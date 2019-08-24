@@ -34,7 +34,7 @@ void CApplication::onOpen()
     memset(&ofn, 0, sizeof(ofn));
     ofn.lStructSize = sizeof(ofn);
     ofn.hwndOwner = mWindow;
-    ofn.lpstrFilter = L"All supported image files(*.bmp;*.png;*.jpg)\0*.bmp;*.png;*.jpg\0\0";
+    ofn.lpstrFilter = L"All supported image files(*.bmp;*.png;*.jpg)\0*.bmp;*.png;*.jpg;*.jpeg\0\0";
     ofn.lpstrFile = mFileName;
     ofn.nMaxFile = ARRAYSIZE(mFileName);
     ofn.lpstrTitle = L"Open file";
