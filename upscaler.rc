@@ -18,7 +18,8 @@ IDR_MENU MENU
 {
     POPUP "File"
     {
-        MENUITEM "Open\tCtrl+O", IDM_OPEN
+        MENUITEM "&Open\tCtrl+O", IDM_OPEN
+        MENUITEM "Save &As...\tCtrl+S", IDM_SAVEAS
         MENUITEM SEPARATOR
         MENUITEM "Exit\tEsc", IDM_EXIT
     }
@@ -48,6 +49,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 IDR_ACCELERATOR ACCELERATORS
 {
     "O",            IDM_OPEN, VIRTKEY, CONTROL
+    "S",            IDM_SAVEAS, VIRTKEY, CONTROL
     VK_ESCAPE,		IDM_EXIT, VIRTKEY
 }
 
